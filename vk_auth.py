@@ -11,7 +11,8 @@ def fetch_vk_api():
     session = vk.AuthSession(
         app_id=vk_app_id,
         user_login=vk_login,
-        user_password=vk_password
+        user_password=vk_password,
+        scope="wall",
     )
     api = vk.API(session, v=5.85, lang='en')
 

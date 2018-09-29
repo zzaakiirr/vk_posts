@@ -1,0 +1,10 @@
+APScheduler==3.5.3
+certifi==2018.8.24
+chardet==3.0.4
+idna==2.7
+pytz==2018.5
+requests==2.19.1
+six==1.11.0
+tzlocal==1.5.1
+urllib3==1.23
+vk==2.0.2

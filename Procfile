@@ -1,0 +1,2 @@
+clock: python main.py
+

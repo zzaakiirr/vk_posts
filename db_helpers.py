@@ -12,7 +12,6 @@ def is_file_exist(file_name):
 def get_data_from_json_file(file_name):
     with open(file_name) as f_obj:
         data = json.loads(f_obj.read())
-
     return data
 
 

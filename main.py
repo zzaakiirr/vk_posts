@@ -1,16 +1,10 @@
 import os
 
-from apscheduler.schedulers.blocking import BlockingScheduler
-
 from vk_auth import fetch_vk_api
 import db_helpers
 import post_helpers
 
 
-sched = BlockingScheduler()
-
-
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=22)
 def main():
     api = fetch_vk_api()
     posting_group_id_ = os.environ.get('GROUP_ID')
@@ -34,5 +28,3 @@ def main():
     db_helpers.delete_scheduled_posts_from_db(
         posts, scheduled_posts_count, db_file_name
     )
-
-sched.start()

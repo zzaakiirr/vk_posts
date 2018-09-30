@@ -5,7 +5,7 @@ import db_helpers
 import post_helpers
 
 
-def main():
+if __name__ == '__main__':
     api = fetch_vk_api()
     posting_group_id = os.environ.get('GROUP_ID')
     group_ids = db_helpers.get_data_from_json_file('group_ids.json')

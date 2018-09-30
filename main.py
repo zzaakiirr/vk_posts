@@ -13,7 +13,7 @@ sched = BlockingScheduler()
 @sched.scheduled_job('cron', day_of_week='mon-sun', hour=22)
 def main():
     api = fetch_vk_api()
-    posting_group_id_ = os.environ.get('GROUP_ID')
+    posting_group_id = os.environ.get('GROUP_ID')
     group_ids = db_helpers.get_data_from_json_file('group_ids.json')
     scheduled_posts_count = 12
 

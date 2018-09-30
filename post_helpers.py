@@ -17,15 +17,19 @@ def fetch_groups_posts(api, group_posts_count, group_ids):
     return all_groups_posts
 
 
-def get_most_popular_posts(api, all_posts, posts_count):
+def sort_posts_by_likes_and_reposts_count(posts):
     sorted_posts = sorted(
-        all_posts,
+        posts,
         key=lambda k: (
             k['likes']['count'],
             k['reposts']['count']
         ),
         reverse=True,
     )
+    return sorted_posts
+
+
+def get_most_popular_posts(api, sorted_posts, posts_count):
     most_liked_posts = []
 
     while len(sorted_posts) and posts_count != 0:

@@ -19,12 +19,13 @@ if __name__ == '__main__':
     else:
         posts = post_helpers.fetch_groups_posts(api, 100, group_ids)
 
+    sorted_posts = post_helpers.sort_posts_by_likes_and_reposts_count(posts)
     most_popular_posts = post_helpers.get_most_popular_posts(
-        api, posts, scheduled_posts_count
+        api, sorted_posts, scheduled_posts_count
     )
     post_helpers.create_scheduled_posts(
         api, most_popular_posts, posting_group_id
     )
     db_helpers.delete_scheduled_posts_from_db(
-        posts, scheduled_posts_count, db_file_name
+        sorted_posts, scheduled_posts_count, db_file_name
     )

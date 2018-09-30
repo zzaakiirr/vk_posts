@@ -5,7 +5,7 @@ def fetch_groups_posts(api, group_posts_count, group_ids):
     all_groups_posts = []
     for group_id in group_ids:
         current_group_posts = api.wall.get(
-            owner_id="-%s" % group_id,
+            owner_id="-%d" % group_id,
             filter="owner",
             count=group_posts_count,
         )
